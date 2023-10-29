@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -37,7 +38,21 @@ public class Calculate {
 
     public static Double getGoodCoast() {
         System.out.println("Введите цену товара");
-        return Double.parseDouble(String.format("%.2f", Double.parseDouble(scanner.next())).replace(',', '.'));
+        double coast = 0.0;
+        while (true) {
+            Serializable serializable = scanner.hasNextDouble() ? coast = scanner.nextDouble() : scanner.next();
+            {
+                if (serializable instanceof Double) {
+                    if (!(coast > 0)) {
+                        System.out.println("Цена товара не может быть отрицательной");
+                        coast *= -1;
+                    }
+                    return Double.parseDouble(String.format("%.2f", coast).replace(',', '.'));
+                } else {
+                    System.out.println("Цена товара должна быть указана в дробном формате 'x.xx' ");
+                }
+            }
+        }
     }
 
     public static class GoodData {
