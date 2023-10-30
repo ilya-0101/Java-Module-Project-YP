@@ -40,20 +40,20 @@ public class Calculate {
         System.out.println("Введите цену товара");
         double coast = 0.0;
         while (true) {
-            Serializable serializable = scanner.hasNextDouble() ? coast = scanner.nextDouble() : scanner.next();
-            {
-                if (serializable instanceof Double) {
-                    if (!(coast > 0)) {
-                        System.out.println("Цена товара не может быть отрицательной");
-                        coast *= -1;
-                    }
+            if (scanner.hasNextDouble()){
+                coast = scanner.nextDouble();
+                if (coast > 0){
                     return Double.parseDouble(String.format("%.2f", coast).replace(',', '.'));
                 } else {
-                    System.out.println("Цена товара должна быть указана в дробном формате 'x.xx' ");
+                    System.out.println("Цена товара не может быть отрицательной или равной 0");
+                    continue;
+                }
+                }
+            System.out.println("Цена товара должна быть указана в дробном формате 'x.xx' ");
+            scanner.next();
                 }
             }
-        }
-    }
+
 
     public static class GoodData {
         private final String goodName;
