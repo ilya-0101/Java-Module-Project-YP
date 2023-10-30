@@ -14,7 +14,7 @@ import java.util.Scanner;
                      System.out.println("Тогда будем считать");
                      break;
                  } else {
-                     System.out.println("Число не должно быть отрицательным или равным 0");
+                     System.out.println("Число не должно быть отрицательным или равным 0, повторите ввод");
                      continue;
                  }
                  }

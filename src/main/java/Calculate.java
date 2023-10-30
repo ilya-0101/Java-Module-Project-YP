@@ -45,7 +45,7 @@ public class Calculate {
                 if (coast > 0){
                     return Double.parseDouble(String.format("%.2f", coast).replace(',', '.'));
                 } else {
-                    System.out.println("Цена товара не может быть отрицательной или равной 0");
+                    System.out.println("Цена товара не может быть отрицательной или равной 0, повторите ввод");
                     continue;
                 }
                 }
